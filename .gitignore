@@ -16,3 +16,7 @@
 
 # Ignore database config file
 config/database.yml
+
+# Ignore IntelliJ IDEA files
+/.idea
+progmr.iml
