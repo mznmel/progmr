@@ -19,10 +19,10 @@
     </div>
 
     <div class="row header">
-        <div class="span3">
+        <div class="span5">
             <h1>{ <%= link_to (t :siteName), root_path %> }</h1>
         </div>
-        <div class="span9 actions">
+        <div class="span7 actions">
             <a href="#"><%= link_to (t :signup), signup_path %></a> |
             <a href="#"><%= link_to (t :login), login_path %></a>
         </div>
@@ -42,14 +42,14 @@
     <% end %>
 
     <div class="row">
-        <div class="span10">
+        <div class="span9">
         <div class="content">
             <%= yield %>
         </div>
         </div>
-        <div class="span2">
+        <div class="span3">
         <div class="side">
-            Right Side
+            <%= render 'layouts/right_side' %>
         </div>
         </div>
     </div>

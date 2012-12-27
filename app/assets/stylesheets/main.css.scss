@@ -3,6 +3,9 @@ $round: 5px;
 body {
   direction: rtl;
   font-family:'Lotus W20 Light';
+  font-size: 1.2em;
+  text-align: justify;
+  line-height: 2em;
 }
 
 a:hover {
@@ -18,7 +21,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.4em;
+  font-size: 1.3em;
   font-weight: normal;
 }
 
@@ -48,7 +51,7 @@ h3 {
 }
 
 label, input {
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 .topBar {
@@ -63,14 +66,14 @@ label, input {
 
   h1 {
     font-family:'DIN Next LT W23 Black';
-    font-size: 3em;
+    font-size: 2em;
   }
 
   .actions {
     text-align: left;
     a {
       font-family:'DIN Next LT W23 Light';
-      font-size: 2em;
+      font-size: 1.5em;
       line-height: 2em;
     }
   }
@@ -79,9 +82,8 @@ label, input {
 
 .side {
   background-color: #F0F0F0;
-  height: 150px;
   box-sizing: border-box;
-  padding: 5px;
+  padding: 10px;
   padding-top: 10px;
   border: 1px solid #ddd;
   border-radius: $round;
