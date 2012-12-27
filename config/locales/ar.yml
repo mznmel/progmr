@@ -1,0 +1,21 @@
+ar:
+    siteName: بروقمر
+    signup: تسجيل مستخدم جديد
+    login: دخول
+    activerecord:
+        errors:
+            messages:
+                blank: "يجب أن لايترك فارغ"
+                taken: "مستخدم من قبل"
+                too_short: "قصير جداً"
+                too_long: "طويل جداً"
+                invalid: "غير صحيح"
+                confirmation: "غير متطابق"
+                exclusion: "غير متاح"
+        attributes:
+            user:
+                username: "اسم المستخدم"
+                email: "البريد الإلكتروني"
+                password: "الرقم السري"
+                password_confirmation: "تأكيد الرقم السري"
+                password_digest: "الرقم السري"  

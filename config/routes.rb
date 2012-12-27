@@ -1,6 +1,7 @@
 Progmr::Application.routes.draw do
   root :to => "posts#index"
-
+  match 'signup' => 'users#signup'
+  match 'doSignup' => 'users#doSignup'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
