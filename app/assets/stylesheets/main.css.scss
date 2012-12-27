@@ -5,6 +5,12 @@ body {
   font-family:'Lotus W20 Light';
 }
 
+a:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #8b0000;
+}
+
 h2 {
   font-size: 2em;
   font-weight: normal;
@@ -60,14 +66,13 @@ label, input {
     font-size: 3em;
   }
 
-  a {
-    font-family:'DIN Next LT W23 Light';
-    font-size: 2em;
-    line-height: 2em;
-  }
-
   .actions {
     text-align: left;
+    a {
+      font-family:'DIN Next LT W23 Light';
+      font-size: 2em;
+      line-height: 2em;
+    }
   }
 }
 

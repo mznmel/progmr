@@ -20,7 +20,7 @@
 
     <div class="row header">
         <div class="span3">
-            <h1>{ <%= t :siteName %> }</h1>
+            <h1>{ <%= link_to (t :siteName), root_path %> }</h1>
         </div>
         <div class="span9 actions">
             <a href="#"><%= link_to (t :signup), signup_path %></a> |
@@ -31,7 +31,12 @@
     <% if flash[:notice] %>
     <div class="row notice">
         <div class="span12">
-            <div><h3><%= flash[:notice] %></h3></div>
+            <div class="fade in">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h3>
+                    <%= flash[:notice] %>
+                </h3>
+            </div>
         </div>
     </div>
     <% end %>
