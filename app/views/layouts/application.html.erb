@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Progmr</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+    <title>Progmr</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript" src="http://fast.fonts.com/jsapi/14ad7663-f050-4800-a989-2e51a08b9fa5.js?2"></script>
+    <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+        <div class="topBar">
+            &nbsp;
+        </div>
+        </div>
+    </div>
+    </section>
 
+    <div class="row header">
+        <div class="span3">
+            <h1>{ بروقمر }</h1>
+        </div>
+        <div class="span9 actions">
+            <a href="#">تسجيل مستخدم جديد</a> |
+            <a href="#">دخول</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span10">
+        <div class="content">
+            <%= yield %>
+        </div>
+        </div>
+        <div class="span2">
+        <div class="side">
+            Right Side
+        </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
