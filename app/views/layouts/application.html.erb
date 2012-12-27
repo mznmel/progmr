@@ -23,8 +23,12 @@
             <h1>{ <%= link_to (t :siteName), root_path %> }</h1>
         </div>
         <div class="span7 actions">
-            <a href="#"><%= link_to (t :signup), signup_path %></a> |
-            <a href="#"><%= link_to (t :login), login_path %></a>
+            <% if current_user %>
+                <a href="#"><%= link_to (t :logout), logout_path %></a>
+            <% else %>
+                <a href="#"><%= link_to (t :signup), signup_path %></a> |
+                <a href="#"><%= link_to (t :login), login_path %></a>
+            <% end %>
         </div>
     </div>
 

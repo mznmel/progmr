@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :username, :presence => true,
-            :length => { :in => 5..25 },
+            :length => { :in => 4..25 },
             :format => { :with => /^[a-zA-Z0-9_]+$/u },
             :uniqueness => { :case_sensitive => false },
             :exclusion => { :in => %w(

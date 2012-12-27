@@ -2,7 +2,13 @@ ar:
     siteName: "بروقمر | Progmr"
     signup: "تسجيل مستخدم جديد"
     login: "دخول"
+    logout: "خروج"
+    username_or_email: "اسم المستخدم أو البريد الإلكتروني"
+    doLogin: "تسجيل الدخول"
     userAddedSuccessfully: "تم إنشاء حسابك بنجاح"
+    loggedInSuccessfully: "تم تسجيل دخولك بنجاح"
+    loggedOutSuccessfully: "تم تسجيل خروجك بنجاح"
+    invalidUsernameOrPassword: "الرجاء التأكد من إسم المستخدم و كلمة المرور"
     pleaseFixTheFollowingErrors: "الرجاء إصلاح الأخطاء التالية"
     activerecord:
         errors:

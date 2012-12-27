@@ -1,0 +1,30 @@
+<div class="ajbtcInputForms">
+    <h3><%= t :login %></h3>
+
+    <%= form_tag(doLogin_path, :class => "form-horizontal loginForm")  do %>
+
+        <% if flash.now[:loginFormError] %>
+            <div class="alert-error">
+                <h3><%= flash.now[:loginFormError] %></h3>
+            </div>
+        <% end %>
+
+        <div class="control-group">
+            <%= label_tag :user_or_email, (t :username_or_email), :class => "control-label" %>
+            <div class="controls">
+                <%= text_field_tag :user_or_email %>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <%= label_tag :password, (t "activerecord.attributes.user.password"), :class => "control-label" %>
+            <div class="controls">
+                <%= password_field_tag :password %>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <%= submit_tag (t :doLogin), :class => "btn btn-primary" %>
+        </div>
+    <% end %>
+</div>

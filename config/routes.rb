@@ -4,6 +4,9 @@ Progmr::Application.routes.draw do
   match 'doSignup' => 'users#doSignup'
 
   match 'login' => 'users#login'
+  match 'doLogin' => 'users#doLogin'
+
+  match 'logout' => 'users#logout'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
