@@ -1,7 +1,9 @@
 ar:
-    siteName: بروقمر
-    signup: تسجيل مستخدم جديد
-    login: دخول
+    siteName: "بروقمر"
+    signup: "تسجيل مستخدم جديد"
+    login: "دخول"
+    userAddedSuccessfully: "تم إنشاء حسابك بنجاح"
+    pleaseFixTheFollowingErrors: "الرجاء إصلاح الأخطاء التالية"
     activerecord:
         errors:
             messages:

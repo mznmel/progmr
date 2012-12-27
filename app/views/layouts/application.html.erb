@@ -17,17 +17,24 @@
         </div>
         </div>
     </div>
-    </section>
 
     <div class="row header">
         <div class="span3">
             <h1>{ <%= t :siteName %> }</h1>
         </div>
         <div class="span9 actions">
-            <a href="#"><%= t :signup %></a> |
-            <a href="#"><%= t :login %></a>
+            <a href="#"><%= link_to (t :signup), signup_path %></a> |
+            <a href="#"><%= link_to (t :login), login_path %></a>
         </div>
     </div>
+
+    <% if flash[:notice] %>
+    <div class="row notice">
+        <div class="span12">
+            <div><h3><%= flash[:notice] %></h3></div>
+        </div>
+    </div>
+    <% end %>
 
     <div class="row">
         <div class="span10">

@@ -1,0 +1,88 @@
+$round: 5px;
+
+body {
+  direction: rtl;
+  font-family:'Lotus W20 Light';
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.4em;
+  font-weight: normal;
+}
+
+.alert-error {
+  background-color: #f8f8f8;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-right: 40px;
+
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.notice {
+  margin-bottom: 10px;
+  .span12 div {
+    border: 2px solid #d6e9c6;
+    padding-right: 10px;;
+    border-radius: $round;
+    background-color: #dff0d8;
+  }
+  h3 {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+label, input {
+  font-size: 1.3em;
+}
+
+.topBar {
+  background-color: #2B8EF0;
+  border-radius: 0 0 $round $round;
+}
+
+.header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+
+  h1 {
+    font-family:'DIN Next LT W23 Black';
+    font-size: 3em;
+  }
+
+  a {
+    font-family:'DIN Next LT W23 Light';
+    font-size: 2em;
+    line-height: 2em;
+  }
+
+  .actions {
+    text-align: left;
+  }
+}
+
+
+.side {
+  background-color: #F0F0F0;
+  height: 150px;
+  box-sizing: border-box;
+  padding: 5px;
+  padding-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: $round;
+}
+
+.content {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}

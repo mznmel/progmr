@@ -10,7 +10,5 @@
  *
  *= require_self
  *= require bootstrap.min.rtl
- *= require bootstrap-responsive.min.rtl
- *= require main.css
- *= require_tree .
+ *= require main
  */
