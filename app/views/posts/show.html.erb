@@ -8,11 +8,13 @@
     <div class="span8">
         <div class="row">
             <div class="span8">
-                <% if @post.url.blank? %>
-                    <div class="postTitle"><%= @post.title %></div>
-                <% else %>
-                    <div class="postTitle"><%= link_to @post.title, @post.url, :class => "url" %></div>
-                <% end %>
+                <div class="postTitle">
+                    <% if @post.url.blank? %>
+                        <%= link_to @post.title, post_path(@post.id.to_s(36)) %>
+                    <% else %>
+                        <%= link_to @post.title, @post.url %><span class="url"><%= URI.parse(@post.url).host %></span>
+                    <% end %>
+                </div>
             </div>
         </div>
         <div class="row metainfo">
