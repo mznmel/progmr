@@ -145,6 +145,10 @@ label, input {
     font-size: 1.5em;
     margin-bottom: 20px;
     margin-top: 5px;
+    .url {
+      font-size: 0.5em;
+      float:left;
+    }
   }
   .postContent {
     line-height: 2em;

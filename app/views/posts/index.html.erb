@@ -9,14 +9,20 @@
     <div class="span8">
         <div class="row">
             <div class="span8">
-                <div class="postTitle"><%= link_to "#{post.title}", (post_path post.id.to_s(36))%></div>
+                <div class="postTitle">
+                    <% if post.url.blank? %>
+                        <%= link_to post.title, post_path(post.id.to_s(36)) %>
+                    <% else %>
+                        <%= link_to post.title, post.url %><span class="url"><%= URI.parse(post.url).host %></span>
+                    <% end %>
+                </div>
             </div>
         </div>
         <div class="row metainfo">
             <div class="span8">
                 <div><%= post.major_tag.name %> |&nbsp;</div>
                 <div><%= post.user.username %> |&nbsp;</div>
-                <div><%= t :comments %>:<%= post.comments.count %>&nbsp;</div>
+                <div><%= link_to (t :comments) + ": " + post.comments.count.to_s, post_path(post.id.to_s(36)) %>&nbsp;</div>
             </div>
         </div>
     </div>
