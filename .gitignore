@@ -22,4 +22,5 @@ config/database.yml
 progmr.iml
 
 #Others
+config/initializers/secret_token.rb
 .env
