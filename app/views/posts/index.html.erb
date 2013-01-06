@@ -1,31 +1,32 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Slug</th>
-    <th>Viewer</th>
-    <th>Comments</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.user_id %></td>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
-    <td><%= post.slug %></td>
-    <td><%= post.viewer %></td>
-    <td><%= post.comments %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<section class="post post-<%= post.id%>">
+<div class="row">
+    <div class="span1 voteColumn">
+        <%= link_to raw("&#9650;"), post_vote_path(post.id, :up), remote: true, :class => "voteLinkUp " + ( (current_user && post.vote == 't') ? "voted":"") %>
+        <div class="postVotes"><%= post.votes %></div>
+        <%= link_to raw("&#9660;"), post_vote_path(post.id, :down), remote: true, :class => "voteLinkDown " + ( (current_user && post.vote == 'f') ? "voted":"") %>
+    </div>
+    <div class="span8">
+        <div class="row">
+            <div class="span8">
+                <div class="postTitle"><%= link_to "#{post.title}", (post_path post.id.to_s(36))%></div>
+            </div>
+        </div>
+        <div class="row metainfo">
+            <div class="span8">
+                <div><%= post.major_tag.name %> |&nbsp;</div>
+                <div><%= post.user.username %> |&nbsp;</div>
+                <div><%= t :comments %>:<%= post.comments.count %>&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
 <% end %>
-</table>
-
-<br />
+<script>
+<% if not current_user %>
+$(".voteLinkUp, .voteLinkDown").click(function(e){
+   alert("<%= t :pleaseLoginToVote %>");
+});
+<% end %>
+</script>

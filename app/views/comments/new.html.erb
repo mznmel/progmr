@@ -1,0 +1,4 @@
+<h2><%= t :addComment %></h2>
+<%= render @post %>
+<%= render @comment.parent if @comment.parent%>
+<%= render "form" %>

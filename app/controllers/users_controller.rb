@@ -7,10 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       # login the user
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       redirect_to root_path, notice: t(:userAddedSuccessfully)
     else
-      render action: "signup"
+      render "signup"
     end
   end
 
@@ -41,6 +41,6 @@ class UsersController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    redirect_to root_path, :notice => t(:loggedOutSuccessfully)
+    redirect_to root_path, notice: t(:loggedOutSuccessfully)
   end
 end

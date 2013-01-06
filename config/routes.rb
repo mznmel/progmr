@@ -3,10 +3,15 @@ Progmr::Application.routes.draw do
   match 'signup' => 'users#signup'
   match 'doSignup' => 'users#doSignup'
 
-  match 'login' => 'users#login'
+  match 'login' => 'users#login', :as => :login
   match 'doLogin' => 'users#doLogin'
 
   match 'logout' => 'users#logout'
+
+  match 'posts/vote/:id/:up_or_down' => 'posts#vote', :as => :post_vote
+  resources :posts, :except => [:destroy] do
+    resources :comments
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

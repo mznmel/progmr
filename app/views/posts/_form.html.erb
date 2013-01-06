@@ -1,41 +1,64 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<% if @post.errors.any? %>
+    <div class="alert-error">
+        <h3><%= t :pleaseFixTheFollowingErrors %></h3>
+        <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :slug %><br />
-    <%= f.text_field :slug %>
-  </div>
-  <div class="field">
-    <%= f.label :viewer %><br />
-    <%= f.number_field :viewer %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.number_field :comments %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
+
+<div class="control-group">
+    <%=  f.label :title, :class => "control-label" %>
+    <div class="controls">
+        <%=  f.text_field :title, :class => "span9" %>
+    </div>
+</div>
+
+<section class="optional">
+    <div class="row">
+        <div class="span5">
+            <div class="control-group">
+                <%=  f.label :url, :class => "control-label" %>
+                <div class="controls">
+                    <%=  f.text_field :url, :class => "span5" %>
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            <small>هذا الحقل إختياري، بإمكانك استخدامه  للإشارة إلى محتوى خارجي، مثل مقالة في موقع آخر أو لملف PDF.</small>
+        </div>
+    </div>
+</section>
+
+<div class="control-group">
+    <%=  f.label :content, :class => "control-label" %>
+    <div class="controls">
+        <%=  f.text_area :content, :class => "span9" %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span3">
+        <%= f.label :major_tag %>
+    </div>
+    <div class="span3">
+        <%= f.label :minor_tag %>
+    </div>
+    <div class="span3 extraTagLabel">
+        <%= f.label :extra_tag %>
+    </div>
+</div>
+<div class="row">
+    <div class="span3">
+        <%=  text_field_tag :major_tag, (@post.major_tag.name if @post.major_tag), :class => "input-block-level" %>
+    </div>
+    <div class="span3">
+        <%=  text_field_tag :minor_tag, (@post.minor_tag.name if @post.minor_tag), :class => "input-block-level" %>
+    </div>
+    <div class="span3">
+        <a href="#" id="showExtraTag" onclick=""><%= t :needExtraTag %></a>
+        <%=  text_field_tag :extra_tag, (@post.extra_tag.name if @post.extra_tag), :class => "input-block-level extraTagInput" %>
+    </div>
+</div>

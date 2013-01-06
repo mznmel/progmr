@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :post_votes
+  has_many :voted, :through => :post_votes
+
   # Only allow setting these values on create
   attr_readonly :username
 
@@ -48,11 +51,11 @@ class User < ActiveRecord::Base
             :format => { :with => /^.+@.+$/ }
 
   validates :password, :presence => true,
-            :length => {:within => 5..25},
+            :length => {:within => 4..25},
             :on => :create
 
   validates :password, :confirmation => true,
-            :length => {:within => 5..25},
+            :length => {:within => 4..25},
             :allow_blank => true,
             :on => :update
 end

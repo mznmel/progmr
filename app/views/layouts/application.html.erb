@@ -24,16 +24,21 @@
         </div>
         <div class="span7 actions">
             <% if current_user %>
-                <a href="#"><%= link_to (t :logout), logout_path %></a>
+                <div>
+                <span><%= current_user.username %> |&nbsp;</span>
+                <span> <%= image_tag "user_karma.png" %><%= current_user.posts_karma + current_user.comments_karma %> |&nbsp;</span>
+                <span> <%= link_to (t :newPost), new_post_path %> |&nbsp;</span>
+                <span> <%= link_to (t :logout), logout_path %></span>
+                </div>
             <% else %>
-                <a href="#"><%= link_to (t :signup), signup_path %></a> |
-                <a href="#"><%= link_to (t :login), login_path %></a>
+                <%= link_to (t :signup), signup_path %> |
+                <%= link_to (t :login), login_path %>
             <% end %>
         </div>
     </div>
 
     <% if flash[:notice] %>
-    <div class="row notice">
+    <div class="row alert-box notice">
         <div class="span12">
             <div class="fade in">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -43,6 +48,22 @@
             </div>
         </div>
     </div>
+    <script>
+    setTimeout(function() { $(".notice").hide(); }, 2500);
+    </script>
+    <% end %>
+
+    <% if flash[:warning] %>
+        <div class="row alert-box warning">
+            <div class="span12">
+                <div class="fade in">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h3>
+                        <%= flash[:warning] %>
+                    </h3>
+                </div>
+            </div>
+        </div>
     <% end %>
 
     <div class="row">

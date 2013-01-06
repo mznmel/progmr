@@ -1,83 +1,121 @@
 class PostsController < ApplicationController
-  # GET /posts
-  # GET /posts.json
+  before_filter :login_required, :except => [:index, :show]
+
+  def login_required
+    if not current_user
+      flash.now[:warning] = t(:youHaveToLoginFirst)
+      redirect_to login_path
+    end
+  end
+
   def index
-    @posts = Post.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @posts }
+    if current_user
+      @posts = Post.all(
+          :include => [:major_tag, :minor_tag, :extra_tag],
+          :joins => [:user,
+                     "LEFT OUTER JOIN post_votes ON post_votes.post_id = posts.id AND post_votes.user_id = #{current_user.id}"],
+          :select => "posts.*, users.username, post_votes.vote", :order => "created_at DESC")
+    else
+      @posts = Post.all(:order => "created_at DESC")
     end
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
+    @post = Post.find(params[:id].to_i(36))
+    if current_user
+      @comment = Comment.new
+      @comment.post = @post
+      postVote = PostVote.where("user_id = ? AND post_id = ?", current_user.id, @post.id).first
+      @postvote = postVote.vote if postVote
     end
   end
 
-  # GET /posts/new
-  # GET /posts/new.json
   def new
     @post = Post.new
+  end
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @post }
+  def create
+    # tags
+    @post = Post.new(params[:post])
+    @post.user = current_user
+    @post.prepare_tags(params[:major_tag], params[:minor_tag], params[:extra_tag])
+
+    if @post.save
+        @post.user.increment!(:posts_karma)
+        redirect_to post_path(@post.id.to_s(36)), notice: (t :postSuccessfullyCreated)
+    else
+        # Should be refactored to a more ruby idiomatic way!
+        render action: "new"
     end
   end
 
-  # GET /posts/1/edit
-  def edit
-    @post = Post.find(params[:id])
-  end
+  def vote
+    @postId = params[:id].to_i(36)
+    @direction = params[:up_or_down] == "up" ? "up" : "down"
 
-  # POST /posts
-  # POST /posts.json
-  def create
-    @post = Post.new(params[:post])
+    postVote = PostVote.where("user_id = ? AND post_id = ?", current_user.id, @postId).first
+    if postVote
+      # if user already voted, destroy his vote
+      orgVoteDirection = postVote.vote
+      postVote.destroy
+    end
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
+    if postVote && ((@direction == "up" && orgVoteDirection == true) || (@direction == "down" && orgVoteDirection == false))
+      # if clicked vote direction equals the previous one, then the user just want to remove his vote
+      @status = "Removed"
+    else
+      # new vote or
+      # the user clicked on vote direction that's different than the previous one
+
+      post = Post.select("user_id, votes").find(@postId)
+
+      if post.user_id == current_user.id
+        @status = "CreatorAndVoterAreSame"
       else
-        format.html { render action: "new" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        postVote = PostVote.new
+        postVote.user_id = current_user.id
+        postVote.post_id = @postId
+        if @direction == "up"
+          postVote.vote = true
+          @status = "UpVoted"
+        else
+          postVote.vote = false
+          @status = "DownVoted"
+        end
+        postVote.save
       end
     end
+    #retrive updated votes
+    @votes = Post.select("votes").find(@postId).votes
+
+    respond_to do |format|
+      format.js #render vote.js.erb
+    end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.json
+  def edit
+    @post = Post.find(params[:id].to_i(36))
+
+    if @post.user_id != current_user.id
+      render :text => "422 You're Not Allowed to edit this post!", :status => 422
+      return
+    end
+  end
+
   def update
     @post = Post.find(params[:id])
+    @post.prepare_tags(params[:major_tag], params[:minor_tag], params[:extra_tag])
 
-    respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.user_id != current_user.id
+      render :text => "422 You're Not Allowed to edit this post!", :status => 422
+      return
+    end
+
+    if @post.update_attributes(params[:post])
+        redirect_to post_path(@post.id.to_s(36)), notice: 'Post was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
-  def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
-    end
-  end
 end

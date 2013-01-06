@@ -1,35 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="post post-<%= @post.id%>">
+<div class="row">
+    <div class="span1 voteColumn">
+        <%= link_to raw("&#9650;"), post_vote_path(@post.id, :up), remote: true, :class => "voteLinkUp " + ( (current_user && @postvote == true) ? "voted":"") %>
+        <div class="postVotes"><%= @post.votes %></div>
+        <%= link_to raw("&#9660;"), post_vote_path(@post.id, :down), remote: true, :class => "voteLinkDown " + ( (current_user && @postvote == false) ? "voted":"") %>
+    </div>
+    <div class="span8">
+        <div class="row">
+            <div class="span8">
+                <% if @post.url.blank? %>
+                    <div class="postTitle"><%= @post.title %></div>
+                <% else %>
+                    <div class="postTitle"><%= link_to @post.title, @post.url, :class => "url" %></div>
+                <% end %>
+            </div>
+        </div>
+        <div class="row metainfo">
+        <div class="span8">
+            <%= @post.user.username %> |
+            <%= t :comments %>:<%= @post.comments.count %>
+            <% if current_user && @post.user_id == current_user.id %>
+                | <%=  link_to (t :edit), edit_post_path(@post) %>
+            <% end %>
+        </div>
+        </div>
+    </div>
+</div>
 
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
-</p>
+<div class="row">
+    <div class="span9 postContent">
+        <%= markdown(@post.content) %>
+    </div>
+</div>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<section class="commentsSection">
 
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
+<div class="row">
+    <div class="span9">
+        <h2><%= t :comments %></h2>
+    </div>
+</div>
 
-<p>
-  <b>Slug:</b>
-  <%= @post.slug %>
-</p>
+<% if current_user %>
+<section class="commentForm">
+<%= render "comments/form" %>
+</section>
+<% end %>
 
-<p>
-  <b>Viewer:</b>
-  <%= @post.viewer %>
-</p>
+<section class="comments">
+<%= nested_comments @post.comments.arrange(:order => :created_at) %>
+</section>
 
-<p>
-  <b>Comments:</b>
-  <%= @post.comments %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+</section>
+</div>

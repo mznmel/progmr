@@ -1,13 +1,28 @@
 $round: 5px;
+$fancy-font: 'DIN Next LT W23 Light';
+$fancy-font-bold: 'DIN Next LT W23 Black';
+$readable-font: 'Lotus W20 Light', Arial;
+$readable-font-bold: 'Lotus W20 Bold';
 
 body {
   direction: rtl;
-  font-family:'Lotus W20 Light';
+  font-family: $readable-font;
   font-size: 1.2em;
   text-align: justify;
-  line-height: 2em;
 }
-
+input, select {
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 1em !important;
+  height: 1.6em !important;
+}
+textarea {
+  font-family: 'Arial';
+  font-weight: normal;
+  font-size: 1em !important;
+  height: 15em !important;
+  line-height: 1.8em;;
+}
 a:hover {
   text-decoration: none;
   background-color: #fff;
@@ -36,13 +51,11 @@ h3 {
   }
 }
 
-.notice {
+.alert-box {
   margin-bottom: 10px;
   .span12 div {
-    border: 2px solid #d6e9c6;
     padding-right: 10px;;
     border-radius: $round;
-    background-color: #dff0d8;
   }
   h3 {
     margin: 0;
@@ -50,8 +63,30 @@ h3 {
   }
 }
 
+.notice {
+  .span12 div {
+    border: 2px solid #d6e9c6;
+    background-color: #dff0d8;
+    color: #468847;
+  }
+}
+
+.warning {
+  .span12 div {
+    border: 2px solid #eed3d7;
+    background-color: #f2dede;
+    color: #b94a48;
+  }
+}
+
 label, input {
   font-size: 0.8em;
+}
+
+.optional {
+  background-color: #f1f1f1;
+  border-radius: $round;
+  margin-bottom: 20px;
 }
 
 .topBar {
@@ -65,16 +100,21 @@ label, input {
   padding-bottom: 20px;
 
   h1 {
-    font-family:'DIN Next LT W23 Black';
+    font-family:$fancy-font-bold;
     font-size: 2em;
   }
 
   .actions {
     text-align: left;
-    a {
-      font-family:'DIN Next LT W23 Light';
-      font-size: 1.5em;
-      line-height: 2em;
+    font-family:$fancy-font;
+    font-size: 1.5em;
+    line-height: 2em;
+    div {
+      float: left;
+    }
+    span {
+      display: bock;
+      float: right;
     }
   }
 }
@@ -87,9 +127,92 @@ label, input {
   padding-top: 10px;
   border: 1px solid #ddd;
   border-radius: $round;
+  line-height: 2em;
 }
 
 .content {
   border-top: 1px solid #ddd;
-  padding-top: 10px;
+  padding-top: 20px;
+}
+
+.post {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #f4f4f4;
+
+  .postTitle {
+    font-family: $readable-font-bold;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    margin-top: 5px;
+  }
+  .postContent {
+    line-height: 2em;
+    font-size: 1.2em;
+    text-align: justify;
+    padding-top: 20px;
+    li {
+     line-height: 2em;
+    }
+    pre {
+      direction: ltr;
+    }
+  }
+  .metainfo {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+
+    div {
+      display: inline;
+      float: right;
+    }
+  }
+}
+
+.vote {
+  color: #c5c5c5;
+}
+
+.voteColumn {
+  text-align: center;
+
+  a {
+    display: block;
+    font-size: 1em;
+    height: 1em;
+  }
+
+  div {
+    font-size: 0.8em;
+  }
+}
+
+.voted {
+  color: #ff4301;
+}
+
+.commentsSection {
+  border-top: 1px solid #d1d1d1;
+}
+.commentForm {
+  margin-bottom: 20px;
+  textarea {
+    font-family: 'Arial';
+    font-weight: normal;
+    font-size: 0.8em !important;
+    height: 5em !important;
+    line-height: 1em;;
+  }
+}
+
+.comment {
+  margin-bottom: 20px;
+  .metainfo {
+    font-size: 0.8em;
+    margin-top: 10px;
+  }
+}
+
+.nested {
+  margin-right: 50px;
 }

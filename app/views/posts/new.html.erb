@@ -1,5 +1,15 @@
-<h1>New post</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', posts_path %>
+<h3><%= t :newPost %></h3>
+<%= form_for @post do |f| %>
+    <%= render 'form', :f => f %>
+    <div class="control-group">
+        <%=  f.submit (t :newPostSubmit), :class => "btn btn-primary" %>
+    </div>
+<% end %>
+<script>
+    $(".extraTagInput, .extraTagLabel").hide();
+    $("#showExtraTag").click(function(e) {
+        $('#showExtraTag').hide('fast');
+        $('.extraTagInput, .extraTagLabel').show('slow');
+        e.preventDefault();
+    });
+</script>

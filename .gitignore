@@ -17,6 +17,9 @@
 # Ignore database config file
 config/database.yml
 
+# Ignore secret token file
+config/initializers/secret_token.rb
+
 # Ignore IntelliJ IDEA files
 /.idea
 progmr.iml

@@ -1,0 +1,13 @@
+$(".post-<%= @postId %> .voteLinkUp").removeClass("voted");
+$(".post-<%= @postId %> .voteLinkDown").removeClass("voted");
+$(".post-<%= @postId %> .postVotes").text("<%= @votes %>");
+
+<% if @status == "CreatorAndVoterAreSame" %>
+    alert("<%= t :youCantVoteYourOwnPost %>");
+<% elsif @status == "UpVoted" %>
+    $(".post-<%= @postId %> .voteLinkUp").addClass("voted");
+    $(".post-<%= @postId %> .postVotes").text("<%= @votes %>");
+<% elsif @status == "DownVoted" %>
+    $(".post-<%= @postId %> .voteLinkDown").addClass("voted");
+    $(".post-<%= @postId %> .postVotes").text("<%= @votes %>");
+<% end %>

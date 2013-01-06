@@ -1,0 +1,9 @@
+<div class="row <%= "nested commentForm-#{@comment.parent_id}" if @comment.parent %>">
+    <div class="span9">
+        <%= form_for [@post, @comment], :remote => true do |f| %>
+            <%= f.text_area :content, :class => "span9" %>
+            <%= f.hidden_field :parent_id %>
+            <%= f.submit (t :submitComment), :class => "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
