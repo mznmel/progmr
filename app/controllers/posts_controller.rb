@@ -2,13 +2,6 @@ require 'uri'
 class PostsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
 
-  def login_required
-    if not current_user
-      flash.now[:warning] = t(:youHaveToLoginFirst)
-      redirect_to login_path
-    end
-  end
-
   def index
     if current_user
       @posts = Post.all(
