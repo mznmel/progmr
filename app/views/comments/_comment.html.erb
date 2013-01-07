@@ -4,6 +4,9 @@
         <div class="metainfo">
             <%= comment.user.username %> |
             <%= link_to (t :reply), new_post_comment_path(@post, :parent_id => comment), :remote => true %>
+            <% if current_user && current_user.id == comment.user_id %>
+             | <%= link_to (t :delete), destroy_comment_path(comment.id), :remote => true %>
+            <% end %>
         </div>
     </div>
 </div>

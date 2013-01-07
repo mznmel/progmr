@@ -25,4 +25,16 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @comment = Comment.find(params[:comment_id])
+    if current_user.id == @comment.user_id
+      @comment.destroy
+      respond_to do |format|
+        format.js
+      end
+    else
+      render :text => "422 You're Not Allowed to delete this comment!", :status => 422
+    end
+  end
 end

@@ -9,6 +9,8 @@ Progmr::Application.routes.draw do
   match 'logout' => 'users#logout'
 
   match 'posts/vote/:id/:up_or_down' => 'posts#vote', :as => :post_vote
+
+  match 'comment/destroy/:comment_id' => 'comments#destroy', :as => :destroy_comment
   resources :posts, :except => [:destroy] do
     resources :comments
   end
