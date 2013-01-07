@@ -1,9 +1,9 @@
 <div class="post post-<%= @post.id%>">
 <div class="row">
     <div class="span1 voteColumn">
-        <%= link_to raw("&#9650;"), post_vote_path(@post.id, :up), remote: true, :class => "voteLinkUp " + ( (current_user && @postvote == true) ? "voted":"") %>
+        <%= link_to raw("&#9650;"), post_vote_path(@post.id.to_s(36), :up), remote: true, :class => "voteLinkUp " + ( (current_user && @postvote == true) ? "voted":"") %>
         <div class="postVotes"><%= @post.votes %></div>
-        <%= link_to raw("&#9660;"), post_vote_path(@post.id, :down), remote: true, :class => "voteLinkDown " + ( (current_user && @postvote == false) ? "voted":"") %>
+        <%= link_to raw("&#9660;"), post_vote_path(@post.id.to_s(36), :down), remote: true, :class => "voteLinkDown " + ( (current_user && @postvote == false) ? "voted":"") %>
     </div>
     <div class="span8">
         <div class="row">
