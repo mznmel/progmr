@@ -22,7 +22,7 @@
             <%= @post.user.username %> |
             <%= t :comments %>:<%= @post.comments.count %>
             <% if current_user && @post.user_id == current_user.id %>
-                | <%=  link_to (t :edit), edit_post_path(@post) %>
+                | <%=  link_to (t :edit), edit_post_path(@post.id.to_s(36)) %>
             <% end %>
         </div>
         </div>
