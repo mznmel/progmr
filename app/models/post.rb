@@ -14,6 +14,7 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true
   validates :content, :presence => true
   validates :major_tag, :presence => true
+  validates :url, :format => URI::regexp(%w(http https)), :allow_blank => true
 
   def prepare_tags(major_tag_name, minor_tag_name = nil, extra_tag_name = nil)
     major = Tag.find_or_create_by_name(major_tag_name) if not major_tag_name.blank?
