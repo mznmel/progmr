@@ -149,6 +149,12 @@ label, input {
       font-size: 0.5em;
       float:left;
     }
+    .urlContent {
+      font-family: $readable-font;
+      font-size: 0.8em;
+      line-height: 1em;
+      margin-top: 20px;
+    }
   }
   .postContent {
     line-height: 2em;
