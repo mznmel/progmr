@@ -152,7 +152,7 @@ label, input {
     .urlContent {
       font-family: $readable-font;
       font-size: 0.7em;
-      line-height: 1em;
+      line-height: 1.5em;
       margin-top: 20px;
     }
   }
@@ -217,6 +217,7 @@ label, input {
 
 .comment {
   margin-bottom: 20px;
+  line-height: 1.7em;
   .metainfo {
     font-size: 0.8em;
     margin-top: 10px;
