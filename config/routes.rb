@@ -14,6 +14,8 @@ Progmr::Application.routes.draw do
   resources :posts, :except => [:destroy] do
     resources :comments
   end
+
+  match 'p/:id' => 'posts#show', :as => :short_post_link
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

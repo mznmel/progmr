@@ -11,7 +11,7 @@
             <div class="span8">
                 <div class="postTitle">
                     <% if post.url.blank? %>
-                        <%= link_to post.title, post_path(post.id.to_s(36)) %>
+                        <%= link_to post.title, short_post_link_path(post.id.to_s(36)) %>
                     <% else %>
                         <%= link_to post.title, post.url %><span class="url"><%= URI.parse(post.url).host %></span>
                         <div class="urlContent">
@@ -25,7 +25,7 @@
             <div class="span8">
                 <div><%= post.major_tag.name %> |&nbsp;</div>
                 <div><%= post.user.username %> |&nbsp;</div>
-                <div><%= link_to (t :comments) + ": " + post.comments.count.to_s, post_path(post.id.to_s(36)) %>&nbsp;</div>
+                <div><%= link_to (t :comments) + ": " + post.comments.count.to_s, short_post_link_path(post.id.to_s(36)) %>&nbsp;</div>
             </div>
         </div>
     </div>

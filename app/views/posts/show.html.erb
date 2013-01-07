@@ -10,7 +10,7 @@
             <div class="span8">
                 <div class="postTitle">
                     <% if @post.url.blank? %>
-                        <%= link_to @post.title, post_path(@post.id.to_s(36)) %>
+                        <%= @post.title %>
                     <% else %>
                         <%= link_to @post.title, @post.url %><span class="url"><%= URI.parse(@post.url).host %></span>
                     <% end %>
