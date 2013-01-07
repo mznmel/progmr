@@ -6,10 +6,9 @@ $readable-font-bold: 'Lotus W20 Bold', Arial;
 
 body {
   direction: rtl;
-  font-family: $readable-font;
   font-size: 1.2em;
-  text-align: justify;
 }
+
 input, select {
   font-family: 'Arial';
   font-weight: bold;
