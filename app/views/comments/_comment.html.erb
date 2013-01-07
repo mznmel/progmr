@@ -1,6 +1,6 @@
 <div class="row comment comment-<%= comment.id %>">
     <div class="span9">
-        <%= comment.content %>
+        <%= markdown(comment.content) %>
         <div class="metainfo">
             <%= comment.user.username %> |
             <%= link_to (t :reply), new_post_comment_path(@post, :parent_id => comment), :remote => true %>
