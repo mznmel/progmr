@@ -37,24 +37,24 @@ ar:
             about_x_hours:
                 zero: ! '%{count} ساعات'
                 one: حوالي ساعة واحدة
-                two: ! '%{count} ساعات'
+                two: ! 'ساعتين'
                 few: ! '%{count} ساعات'
-                many: ! '%{count} ساعات'
-                other: ! '%{count} ساعات'
+                many: ! '%{count} ساعة'
+                other: ! '%{count} ساعة'
             about_x_months:
                 zero: ! '%{count} أشهر'
                 one: حوالي شهر واحد
-                two: ! '%{count} أشهر'
+                two: ! 'شهرين'
                 few: ! '%{count} أشهر'
-                many: ! '%{count} أشهر'
-                other: ! '%{count} أشهر'
+                many: ! '%{count} شهر'
+                other: ! '%{count} شهر'
             about_x_years:
                 zero: ! '%{count} سنوات'
                 one: حوالي سنة
-                two: ! '%{count} سنوات'
+                two: ! 'سنتين'
                 few: ! '%{count} سنوات'
-                many: ! '%{count} سنوات'
-                other: ! '%{count} سنوات'
+                many: ! '%{count} سنة'
+                other: ! '%{count} سنة'
             almost_x_years:
                 zero: ما يقرب من %{count} سنة
                 one: تقريبا سنة واحدة
@@ -68,47 +68,47 @@ ar:
                 one: أقل من دقيقة
                 two: ! '%{count} دقائق'
                 few: ! '%{count} دقائق'
-                many: ! '%{count} دقائق'
-                other: ! '%{count} دقائق'
+                many: ! '%{count} دقيقة'
+                other: ! '%{count} دقيقة'
             less_than_x_seconds:
                 zero: ! '%{count} ثوان'
                 one: أقل من ثانية
-                two: ! '%{count} ثوان'
+                two: ! 'ثانيتين'
                 few: ! '%{count} ثوان'
                 many: ! '%{count} ثوان'
                 other: ! '%{count} ثوان'
             over_x_years:
                 zero: ! '%{count} سنوات'
                 one: أكثر من سنة
-                two: ! '%{count} سنوات'
+                two: ! 'سنتين'
                 few: ! '%{count} سنوات'
-                many: ! '%{count} سنوات'
-                other: ! '%{count} سنوات'
+                many: ! '%{count} سنة'
+                other: ! '%{count} سنة'
             x_days:
                 zero: ! '%{count} أيام'
                 one: يوم واحد
-                two: ! '%{count} أيام'
+                two: ! 'يومين'
                 few: ! '%{count} أيام'
-                many: ! '%{count} أيام'
-                other: ! '%{count} أيام'
+                many: ! '%{count} يوم'
+                other: ! '%{count} يوم'
             x_minutes:
                 zero: ! '%{count} دقائق'
                 one: دقيقة واحدة
-                two: ! '%{count} دقائق'
+                two: ! 'دقيقتين'
                 few: ! '%{count} دقائق'
-                many: ! '%{count} دقائق'
-                other: ! '%{count} دقائق'
+                many: ! '%{count} دقيقة'
+                other: ! '%{count} دقيقة'
             x_months:
                 zero: ! '%{count} أشهر'
                 one: شهر واحد
-                two: ! '%{count} أشهر'
+                two: ! 'شهرين'
                 few: ! '%{count} أشهر'
-                many: ! '%{count} أشهر'
-                other: ! '%{count} أشهر'
+                many: ! '%{count} شهر'
+                other: ! '%{count} شهر'
             x_seconds:
                 zero: ! '%{count} ثوان'
                 one: ثانية واحدة
-                two: ! '%{count} ثوان'
+                two: ! 'ثانيتين'
                 few: ! '%{count} ثوان'
                 many: ! '%{count} ثوان'
                 other: ! '%{count} ثوان'
