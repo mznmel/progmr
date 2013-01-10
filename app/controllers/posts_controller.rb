@@ -8,7 +8,7 @@ class PostsController < ApplicationController
           :include => [:major_tag, :minor_tag, :extra_tag],
           :joins => [:user,
                      "LEFT OUTER JOIN post_votes ON post_votes.post_id = posts.id AND post_votes.user_id = #{current_user.id}"],
-          :select => "posts.*, users.username, post_votes.vote", :order => "created_at DESC")
+          :select => "posts.*, users.username, users.comments_karma, users.posts_karma, post_votes.vote", :order => "created_at DESC")
     else
       @posts = Post.all(:order => "created_at DESC")
     end

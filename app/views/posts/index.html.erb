@@ -25,7 +25,8 @@
             <div class="span8">
                 <div><%= post.major_tag.name %> |&nbsp;</div>
                 <div><%= (t :before) + " " + time_ago_in_words(post.created_at) %> |&nbsp;</div>
-                <div><%= post.user.username %> |&nbsp;</div>
+                <div><%= post.user.username %>&nbsp;</div>
+                <div>(<%= post.user.comments_karma + post.user.posts_karma %>) |&nbsp;</div>
                 <div><%= link_to (t :comments) + ": " + post.comments.count.to_s, short_post_link_path(post.id.to_s(36)) %>&nbsp;</div>
             </div>
         </div>
