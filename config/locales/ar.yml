@@ -33,6 +33,9 @@ ar:
     addComment: "أضف تعليق"
     before: "قبل"
     leaderboard: "الأعضاء الأكثر تميزا"
+    sortBy: "رتب حسب"
+    sortByVotes: "الترشيحات"
+    sortByDate: "التاريخ"
     datetime:
         distance_in_words:
             about_x_hours:

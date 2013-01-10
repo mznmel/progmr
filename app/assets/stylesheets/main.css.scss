@@ -118,9 +118,16 @@ label, input {
   }
 }
 
+.indexActions {
+  font-size: 0.8em;
+  background-color: #F0F0F0;
+  text-align: left;
+  margin-bottom: 20px;
+  padding: 5px;
+  box-sizing: border-box;
+}
 
 .side {
-
   .box {
     padding: 10px;
     background-color: #F0F0F0;
@@ -148,7 +155,7 @@ label, input {
 
 .content {
   border-top: 1px solid #ddd;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .post {

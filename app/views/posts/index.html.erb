@@ -1,3 +1,13 @@
+<div class="row">
+    <div class="span9 indexActions">
+        <%= t :sortBy %>:
+        <% if params[:order] && params[:order] == "votes" %>
+            <%= link_to (t :sortByDate), posts_path() %> | <%= (t :sortByVotes) %>
+        <% else %>
+            <%= (t :sortByDate) %> | <%= link_to (t :sortByVotes), posts_path(:order => "votes") %>
+        <% end %>
+    </div>
+</div>
 <% @posts.each do |post| %>
 <section class="post post-<%= post.id%>">
 <div class="row">
