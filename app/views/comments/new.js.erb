@@ -1,1 +1,3 @@
-$(".comment-<%= @comment.parent_id %>").append("<%= j render("form"); %>");
+if($(".comment-<%= @comment.parent_id %> .new_comment").length == 0) {
+    $(".comment-<%= @comment.parent_id %>").append("<%= j render("form"); %>");
+}

@@ -1,5 +1,5 @@
 <% if @comment.parent %>
-$(".commentForm-<%= @comment.parent_id %>").hide();
+$(".commentForm-<%= @comment.parent_id %>").remove();
 $(".nestedComment-<%= @comment.parent_id %>").prepend("<%= j render(@comment) %>").hide().fadeIn();
 <% else %>
 $(".commentForm").hide();
