@@ -1,0 +1,6 @@
+<h3><%= t :leaderboard %></h3>
+<ul>
+<% @top_users.each do |u| %>
+    <li><%= u.username %><small>(<%= u.comments_karma + u.posts_karma %>)</small></li>
+<% end %>
+</ul>
