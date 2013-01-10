@@ -34,6 +34,7 @@ h2 {
 }
 
 h3 {
+  font-family: $readable-font-bold;
   font-size: 1.3em;
   font-weight: normal;
 }
@@ -119,13 +120,30 @@ label, input {
 
 
 .side {
-  background-color: #F0F0F0;
-  box-sizing: border-box;
-  padding: 10px;
-  padding-top: 10px;
-  border: 1px solid #ddd;
-  border-radius: $round;
-  line-height: 2em;
+
+  .box {
+    padding: 10px;
+    background-color: #F0F0F0;
+    border: 1px solid #ddd;
+    border-radius: $round;
+    line-height: 2em;
+    margin-bottom: 2em;
+    text-align: justify;
+  }
+
+  .leaderboard {
+    small {
+      float: left;
+    }
+
+    ul {
+      list-style: none;
+      margin: 5px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .content {

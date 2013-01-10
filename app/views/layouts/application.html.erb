@@ -72,10 +72,15 @@
             <%= yield %>
         </div>
         </div>
-        <div class="span3">
-        <div class="side">
+        <div class="span3 side">
+
+            <div class="box">
             <%= render 'layouts/right_side' %>
-        </div>
+            </div>
+
+            <div class="box leaderboard">
+                <%= render 'layouts/leaderboard' %>
+            </div>
         </div>
     </div>
 </div>
