@@ -36,6 +36,8 @@ ar:
     sortBy: "رتب حسب"
     sortByVotes: "الترشيحات"
     sortByDate: "التاريخ"
+    postsNextPage: "مواضيع أحدث"
+    postsPreviousPage: "مواضيع أقدم"
     datetime:
         distance_in_words:
             about_x_hours:

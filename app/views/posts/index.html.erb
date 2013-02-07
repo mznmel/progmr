@@ -44,6 +44,11 @@
 </div>
 </section>
 <% end %>
+<div class="row-fluid">
+    <div class="span12 paginationContainer">
+        <%= will_paginate @posts, :class => "pagination", :previous_label => (t :postsNextPage), :next_label => (t :postsPreviousPage) %>
+    </div>
+</div>
 <script>
 <% if not current_user %>
 $(".voteLinkUp, .voteLinkDown").click(function(e){
