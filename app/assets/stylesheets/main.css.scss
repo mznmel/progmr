@@ -7,6 +7,8 @@ $readable-font-bold: 'Lotus W20 Bold', Arial;
 body {
   direction: rtl;
   font-size: 1.2em;
+  background-color: #eeeeee;
+  font-family: $readable-font;
 }
 
 input, select {
@@ -119,7 +121,9 @@ label, input {
 }
 
 .indexActions {
-  font-size: 0.8em;
+  font-family:$fancy-font-bold;
+  font-size: 0.9em;
+  font-size: 0.9em;
   background-color: #F0F0F0;
   text-align: left;
   margin-bottom: 20px;
@@ -130,8 +134,8 @@ label, input {
 .side {
   .box {
     padding: 10px;
-    background-color: #F0F0F0;
-    border: 1px solid #ddd;
+    background-color: #fff;
+    border: 1px solid #c7c7c7;
     border-radius: $round;
     line-height: 2em;
     margin-bottom: 2em;
@@ -154,12 +158,14 @@ label, input {
 }
 
 .content {
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
+  border: 1px solid #c7c7c7;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: $round;
 }
 
 .post {
-  margin-bottom: 10px;
+  padding: 10px;
   border-bottom: 1px solid #f4f4f4;
 
   .postTitle {
@@ -197,7 +203,6 @@ label, input {
   }
   .metainfo {
     font-size: 0.8em;
-    margin-bottom: 10px;
 
     div {
       display: inline;
@@ -206,6 +211,13 @@ label, input {
   }
 }
 
+.postEvenRow {
+  background-color: #fff;
+}
+
+.postOddRow {
+  background-color: #f9f9f9;
+}
 .vote {
   color: #c5c5c5;
 }

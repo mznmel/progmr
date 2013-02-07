@@ -9,7 +9,7 @@
     </div>
 </div>
 <% @posts.each do |post| %>
-<section class="post post-<%= post.id%>">
+<section class="post post-<%= post.id%> <%= cycle("postEvenRow", "postOddRow") %>">
 <div class="row-fluid">
     <div class="span1 voteColumn">
         <%= link_to raw("&#9650;"), post_vote_path(post.id.to_s(36), :up), remote: true, :class => "voteLinkUp " + ( (current_user && post.vote == 1) ? "voted":"") %>
