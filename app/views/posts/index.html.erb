@@ -11,7 +11,7 @@
 <% @posts.each do |post| %>
 <section class="post post-<%= post.id%> <%= cycle("postEvenRow", "postOddRow") %>">
 <div class="row-fluid">
-    <div class="span1 voteColumn">
+    <div class="span1 voteColumn hidden-phone">
         <%= link_to raw("&#9650;"), post_vote_path(post.id.to_s(36), :up), remote: true, :class => "voteLinkUp " + ( (current_user && post.vote == 1) ? "voted":"") %>
         <div class="postVotes"><%= post.votes %></div>
         <%= link_to raw("&#9660;"), post_vote_path(post.id.to_s(36), :down), remote: true, :class => "voteLinkDown " + ( (current_user && post.vote == 0) ? "voted":"") %>

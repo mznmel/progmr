@@ -316,3 +316,36 @@ label, input {
   height: 1%; }
 *:first-child + html .pagination {
   overflow: hidden; }
+
+@media (max-width: 480px) {
+  body {
+  }
+  .header {
+    h1 {
+      text-align: center;
+      font-size: 1.5em;
+    }
+    .actions {
+      text-align: center;
+      font-size: 1em;
+      margin: 0 auto;
+
+      div {
+        float: none;
+
+        span {
+          float: none;
+        }
+      }
+    }
+  }
+  .topBar, .box, .content {
+    margin-left: 20px;
+  }
+  .content {
+    margin-bottom: 20px;
+  }
+  .postTitle {
+    font-size: 1em !important;
+  }
+}
