@@ -1,5 +1,5 @@
-<div class="row">
-    <div class="span9 indexActions">
+<div class="row-fluid">
+    <div class="span12 indexActions">
         <%= t :sortBy %>:
         <% if params[:order] && params[:order] == "votes" %>
             <%= link_to (t :sortByDate), posts_path() %> | <%= (t :sortByVotes) %>
@@ -10,15 +10,15 @@
 </div>
 <% @posts.each do |post| %>
 <section class="post post-<%= post.id%>">
-<div class="row">
+<div class="row-fluid">
     <div class="span1 voteColumn">
         <%= link_to raw("&#9650;"), post_vote_path(post.id.to_s(36), :up), remote: true, :class => "voteLinkUp " + ( (current_user && post.vote == 1) ? "voted":"") %>
         <div class="postVotes"><%= post.votes %></div>
         <%= link_to raw("&#9660;"), post_vote_path(post.id.to_s(36), :down), remote: true, :class => "voteLinkDown " + ( (current_user && post.vote == 0) ? "voted":"") %>
     </div>
-    <div class="span8">
-        <div class="row">
-            <div class="span8">
+    <div class="span11">
+        <div class="row-fluid">
+            <div class="span12">
                 <div class="postTitle">
                     <% if post.url.blank? %>
                         <%= link_to post.title, short_post_link_path(post.id.to_s(36)) %>
@@ -31,8 +31,8 @@
                 </div>
             </div>
         </div>
-        <div class="row metainfo">
-            <div class="span8">
+        <div class="row-fluid metainfo">
+            <div class="span12">
                 <div><%= post.major_tag.name %> |&nbsp;</div>
                 <div><%= (t :before) + " " + time_ago_in_words(post.created_at) %> |&nbsp;</div>
                 <div><%= post.user.username %>&nbsp;</div>

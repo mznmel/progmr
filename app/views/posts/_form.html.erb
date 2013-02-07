@@ -17,7 +17,7 @@
 </div>
 
 <section class="optional">
-    <div class="row">
+    <div class="row-fluid">
         <div class="span5">
             <div class="control-group">
                 <%=  f.label :url, :class => "control-label" %>
@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row-fluid">
     <div class="span3">
         <%= f.label :major_tag %>
     </div>
@@ -50,7 +50,7 @@
         <%= f.label :extra_tag %>
     </div>
 </div>
-<div class="row">
+<div class="row-fluid">
     <div class="span3">
         <%=  text_field_tag :major_tag, (@post.major_tag.name if @post.major_tag), :class => "input-block-level" %>
     </div>

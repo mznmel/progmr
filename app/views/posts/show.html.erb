@@ -1,12 +1,12 @@
 <div class="post post-<%= @post.id%>">
-<div class="row">
+<div class="row-fluid">
     <div class="span1 voteColumn">
         <%= link_to raw("&#9650;"), post_vote_path(@post.id.to_s(36), :up), remote: true, :class => "voteLinkUp " + ( (current_user && @postvote == true) ? "voted":"") %>
         <div class="postVotes"><%= @post.votes %></div>
         <%= link_to raw("&#9660;"), post_vote_path(@post.id.to_s(36), :down), remote: true, :class => "voteLinkDown " + ( (current_user && @postvote == false) ? "voted":"") %>
     </div>
-    <div class="span8">
-        <div class="row">
+    <div class="span11">
+        <div class="row-fluid">
             <div class="span8">
                 <div class="postTitle">
                     <% if @post.url.blank? %>
@@ -17,8 +17,8 @@
                 </div>
             </div>
         </div>
-        <div class="row metainfo">
-        <div class="span8">
+        <div class="row-fluid metainfo">
+        <div class="span12">
             <%= @post.user.username %> |
             <%= t :comments %>:<%= @post.comments.count %>
             <% if current_user && @post.user_id == current_user.id %>
@@ -29,16 +29,16 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="span9 postContent">
+<div class="row-fluid">
+    <div class="span11 offset1 postContent">
         <%= markdown(@post.content) %>
     </div>
 </div>
 
 <section class="commentsSection">
 
-<div class="row">
-    <div class="span9">
+<div class="row-fluid">
+    <div class="span12">
         <h2><%= t :comments %></h2>
     </div>
 </div>
