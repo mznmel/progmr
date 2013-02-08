@@ -29,7 +29,7 @@
                     <% if post.url.blank? %>
                         <%= link_to post.title, short_post_link_path(post.id.to_s(36)) %>
                     <% else %>
-                        <%= link_to post.title, post.url %><span class="url"><%= URI.parse(post.url).host %></span>
+                        <%= link_to post.title, post.url, :target => "_blank" %><span class="url"><%= URI.parse(post.url).host %></span>
                         <div class="urlContent">
                             <%= post.content[0,250] %>
                         </div>
