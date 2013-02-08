@@ -8,4 +8,13 @@ namespace :fix_db do
     puts "Done!"
   end
 
+  task :cleanFeatured => :environment do
+    Post.update_all :featured => false
+    puts "Done!"
+  end
+
+  task :cleanSticky => :environment do
+    Post.update_all :sticky => false
+    puts "Done!"
+  end
 end

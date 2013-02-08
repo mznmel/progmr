@@ -1,6 +1,7 @@
 require 'uri'
 class PostsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
+  before_filter :admins_only, :only => [:tFeatured, :tSticky]
 
   def index
     orderBy = "posts.created_at DESC"
@@ -14,6 +15,8 @@ class PostsController < ApplicationController
         @orderBy = :comments
       end
     end
+
+    orderBy = "posts.sticky DESC," + orderBy
 
     if current_user
       @posts = Post.paginate(:page => params[:page], :per_page => 10).all(
@@ -124,4 +127,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def tFeatured
+    post = Post.find(params[:id].to_i(36))
+    post.featured = (not post.featured)
+    post.save
+    redirect_to post_path(post.id.to_s(36))
+  end
+
+  def tSticky
+    post = Post.find(params[:id].to_i(36))
+    post.sticky = (not post.sticky)
+    post.save
+    redirect_to post_path(post.id.to_s(36))
+  end
 end

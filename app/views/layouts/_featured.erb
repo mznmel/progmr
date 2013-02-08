@@ -1,0 +1,6 @@
+<h3><%= (t :featuredForMonth) + Time.new.strftime("%B") %></h3>
+<ul>
+<% Post.where(:featured => true).limit(10).order("created_at DESC").each do |p| %>
+    <li class="<%= cycle("even", "odd") %>"><%= link_to p.title, post_path(p.id.to_s(36)) %></li>
+<% end %>
+</ul>

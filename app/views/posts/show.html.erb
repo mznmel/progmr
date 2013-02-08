@@ -24,6 +24,10 @@
             <% if current_user && @post.user_id == current_user.id %>
                 | <%=  link_to (t :edit), edit_post_path(@post.id.to_s(36)) %>
             <% end %>
+            <% if current_user and current_user.is_admin == true %>
+                <%= link_to "T-Featured", tFeatured_path() %> |
+                <%= link_to "T-Sticky", tSticky_path() %>
+            <% end %>
         </div>
         </div>
     </div>

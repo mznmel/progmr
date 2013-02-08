@@ -16,6 +16,11 @@ Progmr::Application.routes.draw do
   end
 
   match 'p/:id' => 'posts#show', :as => :short_post_link
+
+  #admin routes
+  match 'tFeatured/:id' => 'posts#tFeatured', :as => :tFeatured
+  match 'tSticky/:id' => 'posts#tSticky', :as => :tSticky
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

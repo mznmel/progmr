@@ -4,6 +4,11 @@ $fancy-font-bold: Arial;
 $readable-font: Arial;
 $readable-font-bold: Arial;
 
+/* Bootstrap icons */
+[class^="icon-"], [class*=" icon-"] {
+  background-image: url(/assets/glyphicons-halflings.png);
+}
+
 body {
   direction: rtl;
   font-size: 1.2em;
@@ -140,11 +145,10 @@ label, input {
     border: 1px solid #c7c7c7;
     border-radius: $round;
     line-height: 2em;
-    margin-bottom: 2em;
-    text-align: justify;
+    margin-bottom: 1em;
   }
 
-  .leaderboard {
+  .leaderboard, .featured {
     small {
       float: left;
     }
@@ -155,6 +159,14 @@ label, input {
     }
     li {
       margin-bottom: 10px;
+    }
+
+    .even {
+      background-color: #fff;
+    }
+
+    .odd {
+      background-color: #f9f9f9;
     }
   }
 }
@@ -219,6 +231,12 @@ label, input {
 .postOddRow {
   background-color: #f9f9f9;
 }
+
+.sticky {
+  background-color: #f9ebe7 !important;
+  margin-bottom: 10px;
+}
+
 .vote {
   color: #c5c5c5;
 }

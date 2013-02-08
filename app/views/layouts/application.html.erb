@@ -68,16 +68,20 @@
 
     <div class="row-fluid">
 
-        <div class="span10">
+        <div class="span9">
         <div class="content">
             <%= yield %>
         </div>
         </div>
 
-        <div class="span2 side">
+        <div class="span3 side">
 
             <div class="box">
             <%= render 'layouts/right_side' %>
+            </div>
+
+            <div class="box featured">
+                <%= render 'layouts/featured' %>
             </div>
 
             <div class="box leaderboard">

@@ -6,8 +6,18 @@ class ApplicationController < ActionController::Base
   protected
   def login_required
     if not current_user
-      flash.now[:warning] = t(:youHaveToLoginFirst)
+      flash[:warning] = t(:youHaveToLoginFirst)
       redirect_to login_path
+      return false
+    end
+  end
+
+  protected
+  def admins_only
+    if current_user.is_admin != true
+      flash[:warning] = "You are not allowed to do this!"
+      redirect_to login_path
+      return false
     end
   end
 

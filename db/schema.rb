@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207222625) do
+ActiveRecord::Schema.define(:version => 20130208083414) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -48,8 +48,10 @@ ActiveRecord::Schema.define(:version => 20130207222625) do
     t.integer  "minor_tag_id"
     t.integer  "extra_tag_id"
     t.integer  "votes",          :default => 0
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.boolean  "featured",       :default => false
+    t.boolean  "sticky",         :default => false
   end
 
   add_index "posts", ["extra_tag_id"], :name => "index_posts_on_extra_tag_id"
@@ -73,8 +75,9 @@ ActiveRecord::Schema.define(:version => 20130207222625) do
     t.string   "password_digest"
     t.integer  "posts_karma",     :default => 0
     t.integer  "comments_karma",  :default => 0
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "is_admin",        :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

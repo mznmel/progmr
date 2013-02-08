@@ -1,6 +1,6 @@
 <h3><%= t :leaderboard %></h3>
 <ul>
 <% @top_users.each do |u| %>
-    <li><%= image_tag(gravatar(u.email))%> <%= u.username %><small>(<%= u.comments_karma + u.posts_karma %>)</small></li>
+    <li class="<%= cycle("even", "odd") %>"><%= image_tag(gravatar(u.email))%> <%= u.username %><small>(<%= u.comments_karma + u.posts_karma %>)</small></li>
 <% end %>
 </ul>
