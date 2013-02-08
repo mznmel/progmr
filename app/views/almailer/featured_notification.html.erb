@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<body style="direction: rtl; background-color: #fff; margin: 20px">
+<div style="border: 1px solid #003399;padding: 20px">
+    <h3>تم إختيار موضوعك ضمن أبرز مواضيع هذا الشهر</h3>
+    <p>
+        السلام عليكم و رحمة الله و بركاته, <br>
+        نشكر لك تميزك و يسعدنا إخبارك أنه تم اختيار موضوعك التالي ضمن أبرز مواضيع هذا الشهر
+        <h2><%= link_to @post.title, post_url(@post.id.to_s(36)) %></h2>
+        <br>
+        شكراً لك.
+        
+        تقبل تحياتنا، <br>
+        فريق بروقمر <br>
+        <a href="http://progmr.com">{ Progmr | بروقمر }</a><br>
+    </p>
+</div>

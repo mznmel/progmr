@@ -129,8 +129,13 @@ class PostsController < ApplicationController
 
   def tFeatured
     post = Post.find(params[:id].to_i(36))
+    logger.debug post.title
+    logger.debug "######################"
     post.featured = (not post.featured)
-    post.save
+    if post.save
+      Almailer.featured_notification(post).deliver
+      post.user.increment!(:posts_karma, 5)
+    end
     redirect_to post_path(post.id.to_s(36))
   end
 

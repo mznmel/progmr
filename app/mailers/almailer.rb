@@ -14,4 +14,9 @@ class Almailer < ActionMailer::Base
     @parentCommentUser = comment.parent.user
     mail to: @parentCommentUser.email, subject: (t :newReplyNotificationEmailSubject)
   end
+
+  def featured_notification(post)
+    @post = post
+    mail to: @post.user.email, subject: (t :featuredNotificationEmailSubject)
+  end
 end
