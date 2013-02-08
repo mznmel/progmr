@@ -14,16 +14,19 @@ body {
 input, select {
   font-family: 'Arial';
   font-weight: bold;
-  font-size: 1em !important;
+  font-size: 1.2em !important;
   height: 1.6em !important;
 }
+
 textarea {
   font-family: 'Arial';
-  font-weight: normal;
+  font-weight: bold;
   font-size: 1em !important;
   height: 15em !important;
-  line-height: 1.8em;;
+  line-height: 1.8em;
+  padding: 10px;
 }
+
 a:hover {
   text-decoration: none;
   color: #8b0000;
@@ -31,7 +34,6 @@ a:hover {
 
 h2 {
   font-size: 2em;
-  font-weight: normal;
   margin-bottom: 10px;
 }
 
@@ -246,10 +248,8 @@ label, input {
   margin-bottom: 20px;
   textarea {
     font-family: 'Arial';
-    font-weight: normal;
-    font-size: 0.8em !important;
-    height: 5em !important;
-    line-height: 1em;;
+    height: 8em !important;
+    line-height: 1em;
   }
 }
 

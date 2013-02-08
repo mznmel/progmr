@@ -12,21 +12,21 @@
 <div class="control-group">
     <%=  f.label :title, :class => "control-label" %>
     <div class="controls">
-        <%=  f.text_field :title, :class => "span9" %>
+        <%=  f.text_field :title, :class => "span12" %>
     </div>
 </div>
 
 <section class="optional">
     <div class="row-fluid">
-        <div class="span5">
+        <div class="span9">
             <div class="control-group">
                 <%=  f.label :url, :class => "control-label" %>
                 <div class="controls">
-                    <%=  f.text_field :url, :class => "span5" %>
+                    <%=  f.text_field :url, :class => "span12" %>
                 </div>
             </div>
         </div>
-        <div class="span4">
+        <div class="span3">
             <small>هذا الحقل إختياري، بإمكانك استخدامه  للإشارة إلى محتوى خارجي، مثل مقالة في موقع آخر أو لملف PDF.</small>
         </div>
     </div>
@@ -35,29 +35,29 @@
 <div class="control-group">
     <%=  f.label :content, :class => "control-label" %>
     <div class="controls">
-        <%=  f.text_area :content, :class => "span9" %>
+        <%=  f.text_area :content, :class => "span12" %>
     </div>
 </div>
 
 <div class="row-fluid">
-    <div class="span3">
+    <div class="span4">
         <%= f.label :major_tag %>
     </div>
-    <div class="span3">
+    <div class="span4">
         <%= f.label :minor_tag %>
     </div>
-    <div class="span3 extraTagLabel">
+    <div class="span4 extraTagLabel">
         <%= f.label :extra_tag %>
     </div>
 </div>
 <div class="row-fluid">
-    <div class="span3">
+    <div class="span4">
         <%=  text_field_tag :major_tag, (@post.major_tag.name if @post.major_tag), :class => "input-block-level" %>
     </div>
-    <div class="span3">
+    <div class="span4">
         <%=  text_field_tag :minor_tag, (@post.minor_tag.name if @post.minor_tag), :class => "input-block-level" %>
     </div>
-    <div class="span3">
+    <div class="span4">
         <a href="#" id="showExtraTag" onclick=""><%= t :needExtraTag %></a>
         <%=  text_field_tag :extra_tag, (@post.extra_tag.name if @post.extra_tag), :class => "input-block-level extraTagInput" %>
     </div>
