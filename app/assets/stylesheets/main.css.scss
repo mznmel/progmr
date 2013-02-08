@@ -255,16 +255,81 @@ label, input {
 }
 
 .comment {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   line-height: 1.7em;
+
   .metainfo {
     font-size: 0.8em;
     margin-top: 10px;
   }
+
+  .userInfo {
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    float: right;
+    text-align: center;
+    width: 90px;
+    .avatar {
+      border-radius: $round;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .bubble {
+    margin-right: 90px;
+    border: 1px solid #B1B1B1;
+    border-radius: $round;
+    padding: 10px;
+    padding-bottom: 0;
+    position: relative;
+  }
+
+  .bubbleEven {
+    background-color: #fff;
+  }
+
+  .bubbleOdd {
+    background-color: #eeeeee;
+  }
+
+
+  .bubble:after, .bubble:before {
+    left: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .bubble:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-left-color: #fff;
+    border-width: 10px;
+    top: 30px;
+    margin-top: -10px;
+  }
+
+  .bubbleOdd:after {
+    border-left-color: #eeeeee;
+  }
+
+  .bubble:before {
+    border-color: rgba(199, 199, 199, 0);
+    border-left-color: #7a7a7a;
+    border-width: 11px;
+    top: 30px;
+    margin-top: -11px;
+  }
+
 }
 
+
 .nested {
-  margin-right: 50px;
+  .nested .bubbleOdd, .nested .bubbleEven {
+    background-color: transparent;
+  }
 }
 
 .paginationContainer {

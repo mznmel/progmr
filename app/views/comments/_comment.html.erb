@@ -1,12 +1,22 @@
-<div class="row-fluid comment comment-<%= comment.id %>">
-    <div class="span10 offset1">
-        <%= markdown(comment.content) %>
-        <div class="metainfo">
-            <%= comment.user.username %> |
-            <%= link_to (t :reply), new_post_comment_path(@post, :parent_id => comment), :remote => true %>
-            <% if current_user && current_user.id == comment.user_id %>
-             | <%= link_to (t :delete), destroy_comment_path(comment.id), :remote => true %>
-            <% end %>
+<div class="row-fluid comment-<%= comment.id %> <%= comment.depth %>">
+    <div class="span12">
+        <div class="comment">
+            <div class="userInfo">
+                <%= image_tag (gravatar(comment.user.email)), :class => "avatar" %>
+                <%= comment.user.username %>
+            </div>
+            <div class="bubble <%= cycle("bubbleEven","bubbleOdd", :name => comment.parent_id)%>">
+                <%= markdown(comment.content) %>
+                <div class="metainfo">
+                    <%= (t :before) + " " + time_ago_in_words(comment.created_at) %> |&nbsp;
+                    <%= link_to (t :reply), new_post_comment_path(@post, :parent_id => comment), :remote => true %>
+                    <% if current_user && current_user.id == comment.user_id %>
+                     | <%= link_to (t :delete), destroy_comment_path(comment.id), :remote => true %>
+                    <% end %>
+                </div>
+
+                <%= childs %>
+            </div>
         </div>
     </div>
 </div>
