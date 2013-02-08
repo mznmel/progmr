@@ -31,7 +31,7 @@
 
 <div class="row-fluid">
     <div class="span11 offset1 postContent">
-        <%= markdown(@post.content) %>
+        <%= sanitize Rinku.auto_link(markdown(@post.content), :all, 'target="_blank"') %>
     </div>
 </div>
 
