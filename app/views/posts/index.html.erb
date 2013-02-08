@@ -1,11 +1,18 @@
+<% if params["featuredOnly"] == "true" %>
+<h3>المواضيع المميزة</h3>
+<% else %>
 <div class="row-fluid">
     <div class="span12 indexActions">
         <%= t :sortBy %>:
-        <%=  @orderBy == :date ? (t :sortByDate) : (link_to (t :sortByDate), posts_path())  %> |
-        <%=  @orderBy == :votes ? (t :sortByVotes) : (link_to (t :sortByVotes), posts_path(:order => "votes"))  %> |
-        <%=  @orderBy == :comments ? (t :sortByComments) : (link_to (t :sortByComments), posts_path(:order => "comments"))  %>
+        <div class="btn-group">
+        <%=  link_to (t :sortByDate), posts_path(), :class => ("btn " + (@orderBy == :date ? "disabled" : ""))   %> |
+        <%=  link_to (t :sortByVotes), posts_path(:order => "votes"), :class => ("btn " + (@orderBy == :votes ? "disabled" : ""))  %> |
+        <%=  link_to (t :sortByComments), posts_path(:order => "comments"), :class => ("btn "+ (@orderBy == :comments ? "disabled" : ""))  %>
+        </div>
     </div>
 </div>
+<% end %>
+
 <% @posts.each do |post| %>
 <section class="post post-<%= post.id%> <%= cycle("postEvenRow", "postOddRow") %> <%= "sticky" if post.sticky %>">
 <div class="row-fluid">

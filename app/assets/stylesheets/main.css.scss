@@ -158,7 +158,9 @@ label, input {
       margin: 5px;
     }
     li {
-      margin-bottom: 10px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      border-bottom: 1px solid #cccccc;
     }
 
     .even {

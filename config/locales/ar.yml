@@ -45,6 +45,7 @@ ar:
     newReplyNotificationEmailSubject: "رد جديد على تعليقك في بروقمر"
     featuredNotificationEmailSubject: "موضوعك في قائمة أبرز مواضيع هذا الشهر"
     featuredForMonth: "المميز لشهر "
+    moreFeatured: "المزيد من المواضيع المميزة"
     datetime:
         distance_in_words:
             about_x_hours:

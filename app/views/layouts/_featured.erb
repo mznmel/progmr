@@ -4,3 +4,4 @@
     <li class="<%= cycle("even", "odd") %>"><%= link_to p.title, post_path(p.id.to_s(36)) %></li>
 <% end %>
 </ul>
+<%= link_to (t :moreFeatured), root_path(:featuredOnly => true), :class => "btn" %>
