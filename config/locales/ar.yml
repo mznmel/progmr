@@ -36,6 +36,7 @@ ar:
     sortBy: "رتب حسب"
     sortByVotes: "الترشيحات"
     sortByDate: "التاريخ"
+    sortByComments: "التعليقات"
     postsNextPage: "مواضيع أحدث"
     postsPreviousPage: "مواضيع أقدم"
     datetime:

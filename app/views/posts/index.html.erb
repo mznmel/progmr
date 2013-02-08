@@ -1,11 +1,9 @@
 <div class="row-fluid">
     <div class="span12 indexActions">
         <%= t :sortBy %>:
-        <% if params[:order] && params[:order] == "votes" %>
-            <%= link_to (t :sortByDate), posts_path() %> | <%= (t :sortByVotes) %>
-        <% else %>
-            <%= (t :sortByDate) %> | <%= link_to (t :sortByVotes), posts_path(:order => "votes") %>
-        <% end %>
+        <%=  @orderBy == :date ? (t :sortByDate) : (link_to (t :sortByDate), posts_path())  %> |
+        <%=  @orderBy == :votes ? (t :sortByVotes) : (link_to (t :sortByVotes), posts_path(:order => "votes"))  %> |
+        <%=  @orderBy == :comments ? (t :sortByComments) : (link_to (t :sortByComments), posts_path(:order => "comments"))  %>
     </div>
 </div>
 <% @posts.each do |post| %>

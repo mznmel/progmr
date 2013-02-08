@@ -3,10 +3,16 @@ class PostsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
 
   def index
-    if params[:order] && params[:order] == "votes"
-      orderBy = "posts.votes DESC"
-    else
-      orderBy = "posts.created_at DESC"
+    orderBy = "posts.created_at DESC"
+    @orderBy = :date
+    if params[:order]
+      if params[:order] == "votes"
+        orderBy = "posts.votes DESC"
+        @orderBy = :votes
+      elsif params[:order] == "comments"
+        orderBy = "posts.comments_count DESC"
+        @orderBy = :comments
+      end
     end
 
     if current_user
