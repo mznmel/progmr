@@ -39,6 +39,8 @@ ar:
     sortByComments: "التعليقات"
     postsNextPage: "مواضيع أحدث"
     postsPreviousPage: "مواضيع أقدم"
+    will_paginate:
+        page_gap: "..."
     datetime:
         distance_in_words:
             about_x_hours:
