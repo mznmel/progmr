@@ -20,7 +20,7 @@
         <div class="row-fluid metainfo">
         <div class="span12">
             <%= @post.user.username %> |
-            <%= t :comments %>:<%= @post.comments.count %>
+            <%= t :comments %>:<%= @post.comments_count %>
             <% if current_user && @post.user_id == current_user.id %>
                 | <%=  link_to (t :edit), edit_post_path(@post.id.to_s(36)) %>
             <% end %>

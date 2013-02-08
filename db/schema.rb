@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103133823) do
+ActiveRecord::Schema.define(:version => 20130207222625) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(:version => 20130103133823) do
     t.string   "title"
     t.string   "url"
     t.text     "content"
-    t.integer  "comments",     :default => 0
+    t.integer  "comments_count", :default => 0
     t.integer  "user_id"
     t.integer  "major_tag_id"
     t.integer  "minor_tag_id"
     t.integer  "extra_tag_id"
-    t.integer  "votes",        :default => 0
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.integer  "votes",          :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "posts", ["extra_tag_id"], :name => "index_posts_on_extra_tag_id"

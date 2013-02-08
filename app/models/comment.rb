@@ -6,5 +6,17 @@ class Comment < ActiveRecord::Base
   validates :post, :presence => true
   validates :content, :presence => true, :length => {:minimum => 3}
 
+  after_create :increase_comments_count
+  after_destroy :decrease_comments_count
+
   has_ancestry
+
+  def increase_comments_count
+    self.post.increment!(:comments_count)
+  end
+
+
+  def decrease_comments_count
+    self.post.decrement!(:comments_count)
+  end
 end
