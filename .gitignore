@@ -14,8 +14,9 @@
 /log/*.log
 /tmp
 
-# Ignore database config file
+# Ignore private config files
 config/database.yml
+config/environment.rb
 
 # Ignore IntelliJ IDEA files
 /.idea
