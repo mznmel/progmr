@@ -14,10 +14,17 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(params[:comment])
     @comment.user_id = current_user.id
     if @comment.save
+
+      if @comment.depth == 0
+        # send notification to the OP if this comment is on his post
+        Almailer.new_comment_notification(@comment).deliver
+      end
+
       respond_to do |format|
         format.html { redirect_to post_path(@comment.post_id.to_s(36)), notice: (t :commentSuccessfulylAdded)}
         format.js
       end
+
     else
       respond_to do |format|
         #format.html { redirect_to post_path(@comment.post_id.to_s(36))}

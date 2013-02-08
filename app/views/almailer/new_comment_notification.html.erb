@@ -1,0 +1,14 @@
+<body style="direction: rtl; background-color: #fff; margin: 20px">
+<div style="border: 1px solid #003399;padding: 20px">
+    <h3>يوجد تعليق جديد على موضوعك في بروقمر</h3>
+    <p>
+        السلام عليكم و رحمة الله و بركاته, <br>
+        قام <%= @comment.user.username %> بإضافة تعليق جديد على موضوعك:
+        <h2><%= link_to @post.title, post_url(@post.id.to_s(36)) %></h2>
+        <br>
+        
+        تقبل تحياتنا، <br>
+        فريق بروقمر <br>
+        <a href="http://progmr.com">>{Progmr|بروقمر}</a><br>
+    </p>
+</div>

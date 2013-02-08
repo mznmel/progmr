@@ -41,6 +41,7 @@ ar:
     postsPreviousPage: "مواضيع أقدم"
     will_paginate:
         page_gap: "..."
+    newCommentNotificationEmailSubject: "تعليق جديد على موضوعك في بروقمر"
     datetime:
         distance_in_words:
             about_x_hours:
