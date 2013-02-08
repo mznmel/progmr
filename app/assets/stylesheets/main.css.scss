@@ -401,7 +401,7 @@ label, input {
 *:first-child + html .pagination {
   overflow: hidden; }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   body {
   }
   .header {
@@ -431,5 +431,30 @@ label, input {
   }
   .postTitle {
     font-size: 1em !important;
+  }
+
+
+  .comment {
+    .userInfo {
+      float: none;
+      margin-bottom: 5px;
+      text-align: right;
+      width: 100%;
+      .avatar {
+        display: inline;
+      }
+    }
+    .bubble {
+      margin-right: 0;
+      position:inherit;
+      overflow: hidden;
+    }
+  }
+
+
+  .nested {
+    .nested .bubbleOdd, .nested .bubbleEven {
+      background-color: transparent;
+    }
   }
 }
