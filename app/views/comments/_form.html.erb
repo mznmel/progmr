@@ -1,5 +1,5 @@
 <div class="row-fluid <%= "nested commentForm-#{@comment.parent_id}" if @comment.parent %>">
-    <div class="span12">
+    <div class="span10 offset1">
         <%= form_for [@post, @comment], :remote => true do |f| %>
             <%= f.text_area :content, :class => "span12" %>
             <%= f.hidden_field :parent_id %>
