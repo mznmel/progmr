@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
 
-      if @comment.depth == 0
+      if @comment.depth == 0 and @post.user.id != current_user.id
         # send notification to the OP if this comment is on his post
         Almailer.new_comment_notification(@comment).deliver
       end
