@@ -1,7 +1,7 @@
 <% if @comment.parent %>
 $(".commentForm-<%= @comment.parent_id %>").remove();
-$(".nestedComment-<%= @comment.parent_id %>").prepend("<%= j render(@comment) %>").hide().fadeIn();
+$(".nestedComment-<%= @comment.parent_id %>").prepend("<%= j render(@comment, :childs => "") %>").hide().fadeIn();
 <% else %>
 $(".commentForm").hide();
-$(".comments").prepend("<%= j render(@comment) %>").hide().fadeIn();
+$(".comments").prepend("<%= j render(@comment, :childs => "") %>").hide().fadeIn();
 <% end %>
