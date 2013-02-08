@@ -17,7 +17,10 @@ class CommentsController < ApplicationController
 
       if @comment.depth == 0 and @post.user.id != current_user.id
         # send notification to the OP if this comment is on his post
-        Almailer.new_comment_notification(@comment).deliver
+        Almailer.new_comment_op_notification(@comment).deliver
+      elsif @comment.depth != 0 and @comment.parent.user.id != current_user.id
+        # send notification to the parent comment user if this comment is on his comment
+        Almailer.new_reply_parent_notification(@comment).deliver
       end
 
       respond_to do |format|

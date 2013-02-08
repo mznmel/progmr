@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <body style="direction: rtl; background-color: #fff; margin: 20px">
 <div style="border: 1px solid #003399;padding: 20px">
-    <h3>يوجد تعليق جديد على موضوعك في بروقمر</h3>
+    <h3>رد جديد على تعليقك في بروقمر</h3>
     <p>
         السلام عليكم و رحمة الله و بركاته, <br>
-        قام <%= @comment.user.username %> بإضافة تعليق جديد على موضوعك:
+        قام <%= @comment.user.username %> بإضافة رد على تعليقك في الموضوع التالي
         <h2><%= link_to @post.title, post_url(@post.id.to_s(36)) %></h2>
         <br>
         
